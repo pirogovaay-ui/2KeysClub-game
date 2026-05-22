@@ -1,6 +1,7 @@
 const canvas = document.querySelector("#game");
 const ctx = canvas.getContext("2d");
 const startButton = document.querySelector("#startButton");
+const telegramButton = document.querySelector("#telegramButton");
 const controlButtons = [...document.querySelectorAll("[data-control]")];
 
 const logo = new Image();
@@ -189,6 +190,7 @@ function startLevel(index = 0) {
   player.jumpBuffer = 0;
 
   startButton.classList.add("hidden");
+  telegramButton.classList.add("hidden");
 }
 
 function resetGame() {
@@ -240,6 +242,7 @@ function update(dt) {
       world.finalWin = true;
       startButton.textContent = "AGAIN";
       startButton.classList.remove("hidden");
+      telegramButton.classList.remove("hidden");
       return;
     }
     const level = levels[world.levelIndex];
@@ -267,6 +270,7 @@ function update(dt) {
     world.completedLevels = Math.max(world.completedLevels, world.levelIndex + 1);
     startButton.textContent = world.finalWin ? "AGAIN" : "NEXT";
     startButton.classList.remove("hidden");
+    telegramButton.classList.toggle("hidden", startButton.textContent !== "AGAIN");
   }
 
   world.camera = Math.max(0, Math.min(world.width - base.w, player.x - 116));
@@ -601,6 +605,7 @@ startLevel(0);
 world.started = false;
 startButton.textContent = "START";
 startButton.classList.remove("hidden");
+telegramButton.classList.add("hidden");
 
 if (new URLSearchParams(window.location.search).get("final") === "1") {
   world.started = true;
@@ -611,6 +616,7 @@ if (new URLSearchParams(window.location.search).get("final") === "1") {
   player.collected = pickups.length;
   startButton.textContent = "AGAIN";
   startButton.classList.remove("hidden");
+  telegramButton.classList.remove("hidden");
 }
 
 logo.addEventListener("load", () => drawGrid());
