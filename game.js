@@ -618,6 +618,9 @@ window.addEventListener("keyup", (event) => {
 
 controlButtons.forEach((button) => {
   const control = button.dataset.control;
+  button.addEventListener("selectstart", (event) => event.preventDefault());
+  button.addEventListener("contextmenu", (event) => event.preventDefault());
+  button.addEventListener("dragstart", (event) => event.preventDefault());
   button.addEventListener("pointerdown", (event) => {
     event.preventDefault();
     button.setPointerCapture(event.pointerId);
