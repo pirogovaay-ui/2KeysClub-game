@@ -1,82 +1,26 @@
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business Leads PRO</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="page-shell">
-    <header class="hero">
-      <div class="hero__brandbar">
-        <img
-          class="school-logo"
-          src="./assets/logos/va/2.png"
-          alt="Vertical Academy"
-        >
-      </div>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+    <title>2 Keys Run</title>
+    <link rel="preload" href="assets/2keys_club_logo_transparent.png" as="image">
+    <link rel="preload" href="assets/thumbs-up.png" as="image">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="game-shell">
+      <canvas id="game" width="390" height="844" aria-label="2 Keys Run game"></canvas>
 
-      <div class="hero__text">
-        <p class="eyebrow">Обучающая программа</p>
-        <h1 class="hero__title">Business Leads PRO</h1>
-        <p class="hero__subtitle">Все материалы программы в одном месте</p>
-        <p class="hero__lead">
-          Здесь собраны записи встреч, LMS-курсы, дополнительные ресурсы и полезные материалы, а еще можно отмечать прогресс по каждому элементу.
-        </p>
-        <div class="hero__actions">
-          <a href="#library" class="button button--primary">Смотреть материалы</a>
-        </div>
-      </div>
+      <button id="startButton" class="start-button" type="button">START</button>
 
-      <aside class="hero__card">
-        <p class="hero__card-label">Мой прогресс</p>
-        <div class="progress-ring">
-          <span id="progressValue">0%</span>
-        </div>
-        <p id="progressCaption">Пока ничего не отмечено</p>
-      </aside>
-    </header>
-
-    <main>
-      <section class="panel panel--split" id="library">
-        <div>
-          <div class="section-head">
-            <div>
-              <p class="section-kicker">Записи встреч</p>
-              <h2>Пересматривай созвоны</h2>
-            </div>
-          </div>
-          <div class="card-list" id="meetingList"></div>
-        </div>
-
-        <div>
-          <div class="section-head">
-            <div>
-              <p class="section-kicker">Курсы и ресурсы</p>
-              <h2>LMS и полезные ссылки</h2>
-            </div>
-          </div>
-          <div class="card-list" id="resourceList"></div>
-        </div>
-      </section>
-
-      <section class="panel">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker">Статьи и лонгриды</p>
-            <h2>Что почитать по теме</h2>
-          </div>
-          <button class="button button--small" id="resetProgress">Сбросить отметки</button>
-        </div>
-        <div class="article-list" id="articleList"></div>
+      <section class="controls" aria-label="Controls">
+        <button class="control-button" type="button" data-control="left" aria-label="Left">&larr;</button>
+        <button class="control-button" type="button" data-control="right" aria-label="Right">&rarr;</button>
+        <button class="control-button jump" type="button" data-control="jump" aria-label="Jump">JUMP</button>
       </section>
     </main>
-  </div>
 
-  <script src="app.js"></script>
-</body>
+    <script src="game.js"></script>
+  </body>
 </html>
