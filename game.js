@@ -500,7 +500,7 @@ function drawIntro() {
 
 function drawWin() {
   if (!world.won) return;
-  ctx.fillStyle = "rgba(32, 36, 38, 0.76)";
+  ctx.fillStyle = "rgba(32, 36, 38, 0.92)";
   ctx.fillRect(0, 0, base.w, base.h);
   if (world.lives === 0) {
     ctx.fillStyle = colors.blue;
@@ -517,15 +517,15 @@ function drawWin() {
   ctx.fillStyle = colors.blue;
   ctx.textAlign = "center";
   if (world.finalWin) {
-    drawLogoImage(logo, base.w / 2 - 120, 310, 240);
     ctx.fillStyle = colors.cream;
     ctx.font = "700 15px 'Courier New', monospace";
-    ctx.fillText("/ Все двери открыты", base.w / 2, 390);
+    ctx.fillText("/ Все двери открыты", base.w / 2, 330);
     ctx.font = "400 14px 'Courier New', monospace";
-    ctx.fillText("Ты нашёл оба ключа", base.w / 2, 420);
+    ctx.fillText("Ты нашёл оба ключа", base.w / 2, 360);
     ctx.fillStyle = colors.blue;
     ctx.font = "700 18px 'Courier New', monospace";
-    ctx.fillText("WELCOME TO 2KEYS CLUB", base.w / 2, 462);
+    ctx.fillText("WELCOME TO", base.w / 2, 408);
+    drawLogoImage(logo, base.w / 2 - 112, 430, 224);
   } else {
     ctx.font = "700 34px 'Courier New', monospace";
     ctx.fillText("OPEN", base.w / 2, 320);
