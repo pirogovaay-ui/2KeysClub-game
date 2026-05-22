@@ -64,6 +64,32 @@ body {
   display: none;
 }
 
+.telegram-button {
+  position: absolute;
+  left: 50%;
+  bottom: calc(84px + env(safe-area-inset-bottom));
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: min(280px, 72vw);
+  min-height: 48px;
+  padding: 0 16px;
+  border: 2px solid rgba(238, 236, 233, 0.74);
+  border-radius: 6px;
+  background: rgba(32, 36, 38, 0.82);
+  color: var(--cream);
+  font: 700 13px/1.2 "Martian Mono", "IBM Plex Mono", "Courier New", monospace;
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+  transform: translateX(-50%);
+  backdrop-filter: blur(8px);
+}
+
+.telegram-button.hidden {
+  display: none;
+}
+
 .controls {
   position: absolute;
   left: 16px;

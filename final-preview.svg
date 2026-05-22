@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#eeece9" stroke-opacity=".055" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="390" height="844" fill="#202426"/>
+  <rect width="390" height="844" fill="#353a3d" opacity=".82"/>
+  <rect width="390" height="844" fill="url(#grid)"/>
+
+  <image href="assets/thumbs-up.png" x="139" y="184" width="112" height="112" preserveAspectRatio="xMidYMid meet"/>
+
+  <text x="195" y="330" text-anchor="middle"
+        font-family="Courier New, monospace" font-size="15" font-weight="700" fill="#eeece9">
+    / Все двери открыты
+  </text>
+  <text x="195" y="360" text-anchor="middle"
+        font-family="Courier New, monospace" font-size="14" fill="#eeece9">
+    Ты нашёл оба ключа
+  </text>
+  <text x="195" y="408" text-anchor="middle"
+        font-family="Courier New, monospace" font-size="18" font-weight="700" fill="#a5c0ed">
+    WELCOME TO
+  </text>
+
+  <image href="assets/2keys_club_logo_transparent.png" x="83" y="430" width="224" preserveAspectRatio="xMidYMid meet"/>
+
+  <rect x="85" y="723" width="220" height="56" rx="6" fill="#a5c0ed"/>
+  <text x="195" y="759" text-anchor="middle"
+        font-family="Courier New, monospace" font-size="20" font-weight="700" fill="#202426">
+    AGAIN
+  </text>
+  <rect x="55" y="655" width="280" height="48" rx="6" fill="#202426" stroke="#eeece9" stroke-opacity=".74" stroke-width="2"/>
+  <text x="195" y="685" text-anchor="middle"
+        font-family="Courier New, monospace" font-size="13" font-weight="700" fill="#eeece9">
+    Вступай в наш ТГ канал
+  </text>
+</svg>

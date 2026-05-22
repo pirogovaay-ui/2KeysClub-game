@@ -1,8 +1,44 @@
 const canvas = document.querySelector("#game");
 const ctx = canvas.getContext("2d");
 const startButton = document.querySelector("#startButton");
-const telegramButton = document.querySelector("#telegramButton");
+let telegramButton = document.querySelector("#telegramButton");
 const controlButtons = [...document.querySelectorAll("[data-control]")];
+
+if (!telegramButton) {
+  telegramButton = document.createElement("a");
+  telegramButton.id = "telegramButton";
+  telegramButton.className = "telegram-button hidden";
+  telegramButton.href = "https://t.me/+Sf4W9QMpQqtmZDg6";
+  telegramButton.target = "_blank";
+  telegramButton.rel = "noopener noreferrer";
+  telegramButton.textContent = "Вступай в наш ТГ канал";
+  telegramButton.style.cssText = [
+    "position:absolute",
+    "left:50%",
+    "bottom:calc(84px + env(safe-area-inset-bottom))",
+    "z-index:2",
+    "display:none",
+    "place-items:center",
+    "width:min(280px,72vw)",
+    "min-height:48px",
+    "padding:0 16px",
+    "border:2px solid rgba(238,236,233,.74)",
+    "border-radius:6px",
+    "background:rgba(32,36,38,.82)",
+    "color:#eeece9",
+    "font:700 13px/1.2 'Courier New', monospace",
+    "text-align:center",
+    "text-decoration:none",
+    "transform:translateX(-50%)",
+    "backdrop-filter:blur(8px)",
+  ].join(";");
+  document.querySelector(".game-shell")?.appendChild(telegramButton);
+}
+
+function setTelegramVisible(visible) {
+  telegramButton.classList.toggle("hidden", !visible);
+  telegramButton.style.display = visible ? "grid" : "none";
+}
 
 const logo = new Image();
 logo.src = "assets/2keys_club_logo_transparent.png";
@@ -190,7 +226,7 @@ function startLevel(index = 0) {
   player.jumpBuffer = 0;
 
   startButton.classList.add("hidden");
-  telegramButton.classList.add("hidden");
+  setTelegramVisible(false);
 }
 
 function resetGame() {
@@ -242,7 +278,7 @@ function update(dt) {
       world.finalWin = true;
       startButton.textContent = "AGAIN";
       startButton.classList.remove("hidden");
-      telegramButton.classList.remove("hidden");
+      setTelegramVisible(true);
       return;
     }
     const level = levels[world.levelIndex];
@@ -270,7 +306,7 @@ function update(dt) {
     world.completedLevels = Math.max(world.completedLevels, world.levelIndex + 1);
     startButton.textContent = world.finalWin ? "AGAIN" : "NEXT";
     startButton.classList.remove("hidden");
-    telegramButton.classList.toggle("hidden", startButton.textContent !== "AGAIN");
+    setTelegramVisible(startButton.textContent === "AGAIN");
   }
 
   world.camera = Math.max(0, Math.min(world.width - base.w, player.x - 116));
@@ -605,7 +641,7 @@ startLevel(0);
 world.started = false;
 startButton.textContent = "START";
 startButton.classList.remove("hidden");
-telegramButton.classList.add("hidden");
+setTelegramVisible(false);
 
 if (new URLSearchParams(window.location.search).get("final") === "1") {
   world.started = true;
@@ -616,7 +652,7 @@ if (new URLSearchParams(window.location.search).get("final") === "1") {
   player.collected = pickups.length;
   startButton.textContent = "AGAIN";
   startButton.classList.remove("hidden");
-  telegramButton.classList.remove("hidden");
+  setTelegramVisible(true);
 }
 
 logo.addEventListener("load", () => drawGrid());
